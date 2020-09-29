@@ -91,7 +91,7 @@ export const RubberSlider: React.FC<IRubberSliderProps> = ({
 		// https://github.com/d3/d3/issues/1545
 		if (process.env.NODE_ENV === 'testing') return
 
-		const svg = select('svg')
+		const svg = select(`#${id}-container`)
 
 		svg
 			.select('path')
@@ -124,7 +124,7 @@ export const RubberSlider: React.FC<IRubberSliderProps> = ({
 	const handleChange = (value: number) => {
 		onChange(value)
 
-		const svg = select('svg')
+		const svg = select(`#${id}-container`)
 		const circle = svg.selectAll('g').data([points[1]], (d) => d as string)
 
 		circle
